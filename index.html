@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>JMP — Arte Mural</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="JMP — murales, cuadros y dibujos por encargo en Perú. Cotiza tu obra por WhatsApp y sigue el trabajo en Instagram, TikTok, YouTube y Facebook.">
+<meta property="og:title" content="JMP — Arte Mural">
+<meta property="og:description" content="Murales, cuadros y dibujos por encargo. Cotiza tu obra por WhatsApp.">
+<meta property="og:image" content="images/mural-2.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%B1%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:        #17151b;
+    --surface:    #221e29;
+    --surface-2:  #2a2432;
+    --line:       #3c3548;
+    --chalk:      #f4ede0;
+    --chalk-dim:  #b8afc4;
+    --magenta:    #ff3d7f;
+    --magenta-2:  #ff8a3d;
+    --cyan:       #35e0c8;
+    --amber:      #ffb238;
+    --whatsapp:   #3ddc84;
+    --radius-lg: 26px;
+    --radius-md: 20px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+
+  body{
+    margin:0;
+    min-height:100vh;
+    background:var(--ink);
+    color:var(--chalk);
+    font-family:"Work Sans", ui-sans-serif, system-ui, sans-serif;
+    display:flex;
+    justify-content:center;
+    padding:28px 16px 40px;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  /* concrete-wall grain */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(244,237,224,0.055) 1px, transparent 1px);
+    background-size:5px 5px;
+    z-index:0;
+  }
+  /* soft spray glow behind the composition */
+  body::after{
+    content:"";
+    position:fixed;
+    top:-10%;
+    left:50%;
+    transform:translateX(-50%);
+    width:900px;
+    height:900px;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(255,61,127,0.16), transparent 55%),
+      radial-gradient(circle at 75% 10%, rgba(53,224,200,0.13), transparent 50%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  main{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:640px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  @media (min-width:560px){
+    main{ grid-template-columns:repeat(4, 1fr); }
+    .full{ grid-column:1 / -1; }
+    .half{ grid-column:span 2; }
+    .quarter{ grid-column:span 1; }
+    .three{ grid-column:span 3; }
+  }
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    opacity:0;
+    animation:rise .6s cubic-bezier(.2,.7,.3,1) forwards;
+  }
+  main > *:nth-child(1){ animation-delay:.02s; }
+  main > *:nth-child(2){ animation-delay:.07s; }
+  main > *:nth-child(3){ animation-delay:.12s; }
+  main > *:nth-child(4){ animation-delay:.17s; }
+  main > *:nth-child(5){ animation-delay:.21s; }
+  main > *:nth-child(6){ animation-delay:.25s; }
+  main > *:nth-child(7){ animation-delay:.29s; }
+  main > *:nth-child(8){ animation-delay:.33s; }
+  main > *:nth-child(9){ animation-delay:.37s; }
+  main > *:nth-child(10){ animation-delay:.41s; }
+
+  @keyframes rise{
+    from{ opacity:0; transform:translateY(10px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .card{ animation:none; opacity:1; }
+    *{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+  }
+
+  /* ---------- profile ---------- */
+  .profile{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:20px 22px;
+  }
+  .profile-text{ min-width:0; }
+  .kicker{
+    font-family:"Space Mono", monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--chalk-dim);
+    margin:0 0 4px;
+  }
+  .wordmark{
+    font-family:"Anton", sans-serif;
+    font-size:clamp(30px, 8vw, 40px);
+    line-height:.9;
+    letter-spacing:.01em;
+    margin:0;
+    text-wrap:balance;
+  }
+  .wordmark span{ color:var(--magenta); }
+  .tagline{
+    margin:6px 0 0;
+    font-size:14px;
+    color:var(--chalk-dim);
+  }
+  .badges{
+    display:flex;
+    gap:8px;
+    margin-top:10px;
+    flex-wrap:wrap;
+  }
+  .badge{
+    font-family:"Space Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:5px 9px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    color:var(--chalk-dim);
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  .dot{
+    width:6px; height:6px; border-radius:50%;
+    background:var(--whatsapp);
+    box-shadow:0 0 0 0 rgba(61,220,132,.6);
+    animation:pulse 2.2s infinite;
+  }
+  @keyframes pulse{
+    0%{ box-shadow:0 0 0 0 rgba(61,220,132,.5); }
+    70%{ box-shadow:0 0 0 7px rgba(61,220,132,0); }
+    100%{ box-shadow:0 0 0 0 rgba(61,220,132,0); }
+  }
+
+  /* ---------- CTA ---------- */
+  .cta{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:22px 24px;
+    background:linear-gradient(120deg, #ff3d7f 0%, #ff7a3d 100%);
+    border:none;
+    border-radius:var(--radius-lg);
+    text-decoration:none;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(255,61,127,0.22);
+  }
+  .cta:focus-visible{ outline:3px solid var(--chalk); outline-offset:3px; }
+  .cta-text .kicker{ color:rgba(23,21,27,0.65); }
+  .cta-headline{
+    font-family:"Anton", sans-serif;
+    font-size:clamp(19px,5vw,24px);
+    color:var(--ink);
+    margin:2px 0 4px;
+    line-height:1.05;
+  }
+  .cta-sub{
+    font-size:13px;
+    color:rgba(23,21,27,0.72);
+    margin:0;
+  }
+  .cta-icon{
+    flex:none;
+    width:52px; height:52px;
+    border-radius:50%;
+    background:var(--ink);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .cta-icon svg{ width:26px; height:26px; }
+  .drip{
+    position:absolute;
+    left:0; right:0; bottom:-1px;
+    height:16px;
+    fill:var(--ink);
+    opacity:.14;
+  }
+
+  /* ---------- gallery ---------- */
+  .gallery{ padding:18px; }
+  .gallery-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:12px;
+  }
+  .gallery-head h2{
+    font-family:"Anton", sans-serif;
+    font-size:19px;
+    letter-spacing:.01em;
+    margin:0;
+  }
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:8px;
+  }
+  @media (min-width:560px){
+    .gallery-grid{ grid-template-columns:repeat(4, 1fr); }
+  }
+  .gallery-grid a{
+    display:block;
+    aspect-ratio:1;
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .gallery-grid img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .35s ease, filter .35s ease;
+    filter:contrast(1.05);
+  }
+  .gallery-grid a:hover img{ transform:scale(1.07); }
+
+  /* ---------- link cards ---------- */
+  .link-card{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    gap:18px;
+    padding:18px;
+    min-height:112px;
+    text-decoration:none;
+    color:var(--chalk);
+    transition:transform .18s ease, border-color .18s ease, background .18s ease;
+  }
+  .link-card:hover{ transform:translateY(-3px); border-color:var(--accent, var(--magenta)); background:var(--surface-2); }
+  .link-card:focus-visible{ outline:2px solid var(--accent, var(--magenta)); outline-offset:2px; }
+  .link-icon{
+    width:38px; height:38px;
+    border-radius:11px;
+    display:flex; align-items:center; justify-content:center;
+    background:color-mix(in srgb, var(--accent, var(--magenta)) 18%, transparent);
+    color:var(--accent, var(--magenta));
+  }
+  .link-icon svg{ width:19px; height:19px; }
+  .link-label{ font-size:14.5px; font-weight:600; margin:0; }
+  .link-handle{
+    font-family:"Space Mono", monospace;
+    font-size:11px;
+    color:var(--chalk-dim);
+    margin:2px 0 0;
+  }
+
+  .ig   { --accent:#ff3d7f; }
+  .tiktok{ --accent:#35e0c8; }
+  .yt   { --accent:#ff5a5a; }
+  .fb   { --accent:#4c8bff; }
+
+  /* ---------- email ---------- */
+  .email{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:18px 20px;
+    text-decoration:none;
+    color:var(--chalk);
+    transition:border-color .18s ease, background .18s ease;
+  }
+  .email:hover{ border-color:var(--amber); background:var(--surface-2); }
+  .email .link-icon{ --accent:#ffb238; flex:none; }
+  .email-text p{ margin:0; }
+  .email-text .link-label{ margin-bottom:1px; }
+
+  /* ---------- signature card ---------- */
+  .signature{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    gap:6px;
+    padding:18px 20px;
+    background:
+      repeating-linear-gradient(135deg, transparent 0 10px, rgba(255,255,255,0.025) 10px 20px),
+      var(--surface);
+  }
+  .signature strong{
+    font-family:"Anton", sans-serif;
+    font-size:15px;
+    letter-spacing:.02em;
+  }
+  .signature span{
+    font-family:"Space Mono", monospace;
+    font-size:11px;
+    color:var(--chalk-dim);
+  }
+
+  footer{
+    grid-column:1/-1;
+    text-align:center;
+    padding:10px 12px 0;
+    font-family:"Space Mono", monospace;
+    font-size:11px;
+    letter-spacing:.06em;
+    color:var(--chalk-dim);
+  }
+  footer a{ color:var(--chalk-dim); }
+
+  @media (min-width:560px){
+    .link-card{ min-height:130px; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <section class="card full profile">
+    <div class="profile-text">
+      <p class="kicker">Jesús Pastor</p>
+      <h1 class="wordmark">JMP <span>—</span> Arte Mural</h1>
+      <p class="tagline">Murales, cuadros y dibujos por encargo</p>
+      <div class="badges">
+        <span class="badge"><span class="dot"></span> Disponible para nuevos proyectos</span>
+        <span class="badge">Perú</span>
+      </div>
+    </div>
+  </section>
+
+  <a class="card full cta" href="https://wa.me/51957221358?text=Hola%20JMP%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20cotizar%20una%20obra%20(mural%2C%20cuadro%20o%20dibujo)" target="_blank" rel="noopener">
+    <div class="cta-text">
+      <p class="kicker">Escríbeme directo</p>
+      <p class="cta-headline">Cotiza tu obra<br>por WhatsApp</p>
+      <p class="cta-sub">+51 957 221 358</p>
+    </div>
+    <span class="cta-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 3C7.03 3 3 7.03 3 12c0 1.66.46 3.22 1.24 4.56L3 21l4.6-1.2A8.94 8.94 0 0 0 12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9Z" stroke="#3ddc84" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M8.7 8.4c.2-.45.4-.46.6-.47.16 0 .35 0 .5 0 .17 0 .4-.06.62.48.24.58.8 2 .87 2.15.07.15.12.32.02.5-.1.2-.15.31-.3.48-.15.17-.31.38-.45.5-.15.15-.3.3-.13.6.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.34 2.4 1.49.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.24.65-.14.27.1 1.7.8 1.99.95.3.14.49.22.56.34.08.13.08.75-.17 1.47-.25.72-1.45 1.4-2 1.5-.54.09-1.06.13-2.4-.5-2.03-.94-3.34-3.05-3.44-3.19-.1-.15-.83-1.1-.83-2.1s.53-1.5.72-1.7Z" fill="#3ddc84"/>
+      </svg>
+    </span>
+    <svg class="drip" viewBox="0 0 400 16" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h400v6c-10 6-24 8-38 3-14-5-27 4-41 4-15 0-24-9-39-9-16 0-23 10-40 10-16 0-22-8-39-8-16 0-25 9-41 9-15 0-22-8-38-8-15 0-24 8-40 8-14 0-22-7-37-7-13 0-24 6-37 6v-14Z"/>
+    </svg>
+  </a>
+
+  <section class="card full gallery">
+    <div class="gallery-head">
+      <h2>Últimos trabajos</h2>
+      <span class="badge">@theartofjmp</span>
+    </div>
+    <div class="gallery-grid">
+      <a href="https://www.instagram.com/theartofjmp/" target="_blank" rel="noopener">
+        <img src="images/mural-1.jpg" alt="Mural en proceso, retrato inspirado en Frida Kahlo" loading="lazy">
+      </a>
+      <a href="https://www.instagram.com/theartofjmp/" target="_blank" rel="noopener">
+        <img src="images/mural-2.jpg" alt="Mural de retrato femenino con pañoleta y rosas" loading="lazy">
+      </a>
+      <a href="https://www.instagram.com/theartofjmp/" target="_blank" rel="noopener">
+        <img src="images/mural-3.jpg" alt="Mural de retrato en tonos azules y rojos sobre pared de ladrillo" loading="lazy">
+      </a>
+      <a href="https://www.instagram.com/theartofjmp/" target="_blank" rel="noopener">
+        <img src="images/mural-4.jpg" alt="Mural de retrato femenino con aretes y fondo rosa" loading="lazy">
+      </a>
+    </div>
+  </section>
+
+  <a class="card quarter link-card ig" href="https://www.instagram.com/theartofjmp/" target="_blank" rel="noopener">
+    <span class="link-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><circle cx="17.1" cy="6.9" r="1.1" fill="currentColor"/></svg></span>
+    <div>
+      <p class="link-label">Instagram</p>
+      <p class="link-handle">@theartofjmp</p>
+    </div>
+  </a>
+
+  <a class="card quarter link-card tiktok" href="https://www.tiktok.com/@theartofjmp" target="_blank" rel="noopener">
+    <span class="link-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 3.5c.5 2 2 3.6 4.2 3.9v2.7c-1.5.05-2.9-.4-4.2-1.25v6.4c0 3.1-2.5 5.25-5.3 5.25-2.85 0-5.2-2.15-5.2-5.25 0-3 2.5-5.25 5.3-5.25.35 0 .7.03 1 .1v2.85a2.6 2.6 0 0 0-1-.2c-1.45 0-2.6 1.15-2.6 2.5 0 1.4 1.15 2.55 2.6 2.55 1.5 0 2.75-1.2 2.75-2.85V3.5H14Z" fill="currentColor"/></svg></span>
+    <div>
+      <p class="link-label">TikTok</p>
+      <p class="link-handle">@theartofjmp</p>
+    </div>
+  </a>
+
+  <a class="card quarter link-card yt" href="https://www.youtube.com/@TheArtofJMP" target="_blank" rel="noopener">
+    <span class="link-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="18" height="12" rx="4" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 9.7v4.6l4-2.3-4-2.3Z" fill="currentColor"/></svg></span>
+    <div>
+      <p class="link-label">YouTube</p>
+      <p class="link-handle">@TheArtofJMP</p>
+    </div>
+  </a>
+
+  <a class="card quarter link-card fb" href="https://www.facebook.com/theartofjmp" target="_blank" rel="noopener">
+    <span class="link-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/><path d="M13.2 20v-6.3h2.1l.3-2.4h-2.4V9.7c0-.7.2-1.2 1.2-1.2h1.3V6.4c-.2 0-1-.1-1.9-.1-1.9 0-3.2 1.15-3.2 3.3v1.7H8.6v2.4h2v6.3h2.6Z" fill="currentColor"/></svg></span>
+    <div>
+      <p class="link-label">Facebook</p>
+      <p class="link-handle">theartofjmp</p>
+    </div>
+  </a>
+
+  <a class="card three email" href="mailto:theartofjmp@gmail.com">
+    <span class="link-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M4 7.5 12 13l8-5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <div class="email-text">
+      <p class="link-label">Correo</p>
+      <p class="link-handle">theartofjmp@gmail.com</p>
+    </div>
+  </a>
+
+  <div class="card quarter signature">
+    <strong>JMP</strong>
+    <span>Pared, lienzo o papel.</span>
+  </div>
+
+  <footer>
+    theartofjmp.com
+  </footer>
+
+</main>
+</body>
+</html>
