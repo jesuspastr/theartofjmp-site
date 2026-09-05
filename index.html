@@ -15,17 +15,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:         #f5f0e6;
+    --bg:         #fafafa;
     --surface:    #ffffff;
-    --surface-2:  #f7f1e6;
-    --line:       #e6dcc8;
+    --surface-2:  #f1f1ef;
+    --line:       #e4e2de;
     --text:       #211c28;
     --text-dim:   #726a80;
-    --grain:      rgba(33,28,40,0.035);
+    --grain:      rgba(20,20,24,0.035);
     --stripe:     rgba(0,0,0,0.03);
     --glow-1:     rgba(255,61,127,0.10);
     --glow-2:     rgba(53,224,200,0.09);
-    --cta-ink:    #1c1620;
     --magenta:    #ff3d7f;
     --magenta-2:  #ff8a3d;
     --cyan:       #14b8a6;
@@ -226,33 +225,33 @@
     justify-content:space-between;
     gap:16px;
     padding:22px 24px;
-    background:linear-gradient(120deg, #ff3d7f 0%, #ff7a3d 100%);
+    background:linear-gradient(120deg, #25d366 0%, #128c7e 100%);
     border:none;
     border-radius:var(--radius-lg);
     text-decoration:none;
     overflow:hidden;
-    box-shadow:0 10px 30px rgba(255,61,127,0.22);
+    box-shadow:0 10px 30px rgba(18,140,126,0.28);
   }
-  .cta:focus-visible{ outline:3px solid #fff; outline-offset:3px; }
-  .cta-text .kicker{ color:rgba(23,21,27,0.65); }
+  .cta:focus-visible{ outline:3px solid var(--text); outline-offset:3px; }
+  .cta-text .kicker{ color:rgba(255,255,255,0.75); }
   .cta-headline{
     font-family:"Anton", sans-serif;
     font-size:clamp(19px,5vw,24px);
-    color:var(--cta-ink);
+    color:#fff;
     margin:2px 0 4px;
     line-height:1.05;
   }
   .cta-sub{
     font-size:13px;
-    color:rgba(23,21,27,0.72);
+    color:rgba(255,255,255,0.85);
     margin:0;
   }
   .cta-icon{
     flex:none;
     width:52px; height:52px;
     border-radius:50%;
-    background:var(--cta-ink);
-    color:var(--whatsapp);
+    background:#fff;
+    color:#128c7e;
     display:flex; align-items:center; justify-content:center;
   }
   .cta-icon svg{ width:26px; height:26px; }
@@ -260,8 +259,8 @@
     position:absolute;
     left:0; right:0; bottom:-1px;
     height:16px;
-    fill:var(--cta-ink);
-    opacity:.14;
+    fill:#000;
+    opacity:.12;
   }
 
   /* ---------- gallery ---------- */
